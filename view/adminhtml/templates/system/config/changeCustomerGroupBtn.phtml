@@ -1,0 +1,46 @@
+<?php
+declare(strict_types=1);
+
+/**
+ * @var ChangeCustomerGroupBtn $block
+ */
+
+use Vbdev\SwitchCustomerGroup\Block\System\Config\ChangeCustomerGroupBtn;
+
+?>
+<?php echo $block->getButtonHtml() ?>
+
+<div id="switch-group-messages">
+    <div class="messages">
+        <div class="message message-success success" style="display: none;">
+            <div data-ui-id="messages-message-success">
+                <span class="message-text"></span>
+            </div>
+        </div>
+        <div class="message message-error error" style="display: none;">
+            <div data-ui-id="messages-message-error">
+                <span class="message-text"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php if ($block->getEnabled()): ?>
+    <div id="change-btn" data-bind="scope:'import'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <script type="text/x-magento-init">
+            {
+                "*": {
+                    "Vbdev_SwitchCustomerGroup/js/button/changegroup": {}
+                }
+            }
+
+        </script>
+        <script>
+            window.ajaxUrl = '<?= /* @noEscape */ $block->getAjaxUrl() ?>';
+            window.formKey = '<?= /* @noEscape */ $block->getFormKey() ?>';
+        </script>
+    </div>
+<?php endif; ?>
+
+

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Sales\Api\OrderManagementInterface">
+        <plugin name="after_place_order_operation_switch_group"
+                type="Vbdev\SwitchCustomerGroup\Plugin\OrderManagement"/>
+    </type>
+    <type name="Magento\Customer\Api\AccountManagementInterface">
+        <plugin name="after_create_account_operation_switch_group"
+                type="Vbdev\SwitchCustomerGroup\Plugin\AccountManagement"/>
+    </type>
+    <type name="Magento\Customer\Controller\Account\LoginPost">
+        <plugin name="after_customer_login_operation_switch_group"
+                type="Vbdev\SwitchCustomerGroup\Plugin\Controller\Account\SignIn"/>
+    </type>
+</config>
+
