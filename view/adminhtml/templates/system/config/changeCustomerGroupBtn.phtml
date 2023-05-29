@@ -26,21 +26,17 @@ use Vbdev\SwitchCustomerGroup\Block\System\Config\ChangeCustomerGroupBtn;
 </div>
 
 <?php if ($block->getEnabled()): ?>
-    <div id="change-btn" data-bind="scope:'import'">
-        <!-- ko template: getTemplate() --><!-- /ko -->
-        <script type="text/x-magento-init">
-            {
-                "*": {
-                    "Vbdev_SwitchCustomerGroup/js/button/changegroup": {}
-                }
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Vbdev_SwitchCustomerGroup/js/button/changegroup": {}
             }
-
-        </script>
-        <script>
-            window.ajaxUrl = '<?= /* @noEscape */ $block->getAjaxUrl() ?>';
-            window.formKey = '<?= /* @noEscape */ $block->getFormKey() ?>';
-        </script>
-    </div>
+        }
+    </script>
+    <script>
+        window.ajaxUrl = '<?= /* @noEscape */ $block->getAjaxUrl() ?>';
+        window.formKey = '<?= /* @noEscape */ $block->getFormKey() ?>';
+    </script>
 <?php endif; ?>
 
 
